@@ -30,7 +30,6 @@ from app.models.user import User
 from app.models.course import Course
 from app.models.batch import Batch
 from app.models.student import Student
-from app.models.counselor import Counselor
 from app.models.notification import Notification
 from app.models.message import Message
 from app.models.template import Template
@@ -86,11 +85,6 @@ app.include_router(
     tags=["Batches"]
 )
 
-app.include_router(
-    counselors.router,
-    prefix="/counselors",
-    tags=["Counselors"]
-)
 
 app.include_router(
     auth.router,
