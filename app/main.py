@@ -38,9 +38,8 @@ from app.models.conversation import Conversation
 from app.routes import wati
 from app.routes import meta_webhook
 
-Base.metadata.create_all(
-    bind=engine
-)
+
+Base.metadata.create_all(bind=engine)
 
 app = FastAPI(
     title="Vtrios CRM API"

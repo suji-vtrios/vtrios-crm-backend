@@ -1,9 +1,7 @@
 from pydantic import BaseModel
 
 
-class Student(BaseModel):
-
-    id: int
+class StudentBase(BaseModel):
 
     name: str
 
@@ -16,3 +14,12 @@ class Student(BaseModel):
     enrollment_date: str
 
     status: str
+
+
+class StudentCreate(StudentBase):
+    pass
+
+
+class Student(StudentBase):
+
+    id: int

@@ -10,7 +10,7 @@ from app.models.student import (
 )
 
 from app.schemas.student import (
-    Student
+    Student, StudentCreate
 )
 
 router = APIRouter()
@@ -28,18 +28,16 @@ def get_students(
 
 @router.post("/")
 def create_student(
-    student: Student,
+    student: StudentCreate,
     db: Session = Depends(get_db)
 ):
 
     item = StudentModel(
-        id=student.id,
         name=student.name,
         phone=student.phone,
         email=student.email,
         course=student.course,
-        enrollment_date=
-        student.enrollment_date,
+        enrollment_date=student.enrollment_date,
         status=student.status
     )
 

@@ -6,6 +6,7 @@ from datetime import timedelta
 from sqlalchemy.orm import Session
 
 from app.schemas.lead import Lead
+from app.schemas.lead import LeadCreate
 from app.models.lead import Lead as LeadModel
 
 from app.dependencies import get_db
@@ -128,7 +129,7 @@ def get_leads(
 
 @router.post("/")
 def create_lead(
-    lead: Lead,
+    lead: LeadCreate,
     db: Session = Depends(get_db)
 ):
 
@@ -191,7 +192,6 @@ def create_lead(
     ).strftime('%Y-%m-%d')
     
     new_lead = LeadModel(
-        id=lead.id,
         name=lead.name,
         phone=lead.phone,
         email=lead.email,
@@ -246,7 +246,7 @@ def get_lead(
 @router.put("/{lead_id}")
 def update_lead(
     lead_id: int,
-    lead: Lead,
+    lead: LeadCreate,
     db: Session = Depends(get_db)
 ):
 
