@@ -11,8 +11,6 @@ from app.models import student
 from app.routes import students
 from app.models import batch
 from app.routes import batches
-from app.models import counselor
-from app.routes import counselors
 from app.models import user
 from app.routes import auth
 from app.routes import users
