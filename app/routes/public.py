@@ -12,8 +12,8 @@ from app.models.lead import (
     Lead as LeadModel
 )
 
-from app.models.counselor import (
-    Counselor
+from app.models.user import (
+    User
 )
 
 from app.schemas.lead import (
@@ -33,7 +33,9 @@ def create_public_lead(
 ):
 
     counselors = db.query(
-        Counselor
+        User
+    ).filter(
+        User.role == "Counselor"
     ).all()
 
     assigned_counselor = None
